@@ -28,7 +28,8 @@ struct JournalListView: View {
                 .listRowBackground(Color.clear)
                 .listRowSeparator(.hidden)
                 .listRowInsets(EdgeInsets(top: 8, leading: 21.5, bottom: 8, trailing: 21.5))
-                .swipeActions(edge: .leading, allowsFullSwipe: false) {
+                .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+
                     Button {
                         journalToDelete = journal
                         showDeleteAlert = true

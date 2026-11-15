@@ -95,7 +95,7 @@ struct JournalEditorView: View {
             Button("Discard Changes", role: .destructive) {
                 dismiss()
             }
-            Button("Keep Editing", role: .cancel) { }
+            Button("Keep Editing") { }
         }
     }
 }
