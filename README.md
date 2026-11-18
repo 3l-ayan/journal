@@ -1,7 +1,8 @@
 # Journali 📖
 
 **Because every day deserves a page.**
-Write it down. Keep it close. Find it anytime.
+       Write it down. 
+Keep it close. Find it anytime.
 
 ![Journali](banner.png)
 
