@@ -1,21 +1,19 @@
 import SwiftUI
-
 struct ContentView: View {
     @StateObject private var viewModel = JournalViewModel()
-    @AppStorage("hasSeenSplash") private var hasSeenSplash = false
+    @State private var showSplash = true
     @State private var showAddSheet = false
     @State private var journalToEdit: Journal?
 
     var body: some View {
-        if !hasSeenSplash {
+        if showSplash {
             SplashView()
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        hasSeenSplash = true
+                        showSplash = false
                     }
                 }
         } else {
-
             NavigationStack {
                 Group {
                     if viewModel.journals.isEmpty {

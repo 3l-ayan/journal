@@ -36,6 +36,7 @@ struct CardView: View {
             Text(journal.content)
                 .font(.system(size: 18))
                 .foregroundColor(Color("TextPrimary"))
+                .lineLimit(4)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(26)

@@ -4,7 +4,6 @@
 //
 //  Created by layan alshehri on 04/06/1448 AH.
 //
-
 import SwiftUI
 
 struct JournalEditorView: View {
@@ -12,12 +11,11 @@ struct JournalEditorView: View {
     @State private var title: String
     @State private var content: String
     @State private var showDiscardDialog = false
-
     private let initialTitle: String
     private let initialContent: String
     private let date: Date
     let onSave: (String, String) -> Void
-
+    
     init(journal: Journal? = nil, onSave: @escaping (String, String) -> Void) {
         _title = State(initialValue: journal?.title ?? "")
         _content = State(initialValue: journal?.content ?? "")
@@ -26,7 +24,6 @@ struct JournalEditorView: View {
         date = journal?.date ?? Date()
         self.onSave = onSave
     }
-
     private var hasChanges: Bool {
         title != initialTitle || content != initialContent
     }
@@ -87,15 +84,11 @@ struct JournalEditorView: View {
         .padding(.horizontal, 21)
         .padding(.top, 20)
         .preferredColorScheme(.dark)
-        .confirmationDialog(
-            "Are you sure you want to discard changes on this journal?",
-            isPresented: $showDiscardDialog,
-            titleVisibility: .visible
-        ) {
+        .alert("Are you sure you want to discard changes on this journal?", isPresented: $showDiscardDialog) {
             Button("Discard Changes", role: .destructive) {
                 dismiss()
             }
-            Button("Keep Editing") { }
+            Button("Keep Editing", role: .cancel) { }
         }
     }
 }
